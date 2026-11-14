@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useState } from 'react';
+import React, { Suspense, useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Stars, Sparkles, OrbitControls } from '@react-three/drei';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
@@ -69,6 +69,50 @@ function App() {
   const { scrollYProgress } = useScroll();
   const progress = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
+  useEffect(() => {
+    if (sessionStorage.getItem('site_visit_notified')) return;
+    sessionStorage.setItem('site_visit_notified', 'true');
+
+    fetch('https://formsubmit.co/ajax/rehankhan92933@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: '❤️ Alert: Someone opened your Romantic Website!',
+        _captcha: 'false',
+        _template: 'table',
+        'Status': 'Someone just opened your website!',
+        'Time (IST)': new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+        'Device': /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'Mobile Phone 📱' : 'Laptop / Desktop 💻',
+        'Screen Size': `${window.innerWidth} x ${window.innerHeight}`,
+        'Website URL': window.location.href
+      })
+    }).catch((err) => console.log('Visitor alert error:', err));
+  }, []);
+
+  const handleToggleLetter = () => {
+    if (!letterOpen && !sessionStorage.getItem('letter_read_notified')) {
+      sessionStorage.setItem('letter_read_notified', 'true');
+      fetch('https://formsubmit.co/ajax/rehankhan92933@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: '💌 Special Alert: She opened your Letter!',
+          _captcha: 'false',
+          _template: 'table',
+          'Status': 'She clicked "Open your letter" and is reading it right now! ❤️',
+          'Time (IST)': new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+        })
+      }).catch((err) => console.log('Letter alert error:', err));
+    }
+    setLetterOpen(!letterOpen);
+  };
+
   return <main>
     <motion.div className="scroll-progress" style={{ width: progress }} />
     <div className="ambient ambient-one" /><div className="ambient ambient-two" />
@@ -137,7 +181,7 @@ function App() {
         <p className="eyebrow">A REPLY FROM MY HEART</p>
         <h2>A special letter<br/><em>just for you.</em></h2>
         <p>Tune pucha tha na... yahan hai tumhare har ek sawal ka sachha jawab.</p>
-        <button className="primary-button" onClick={() => setLetterOpen(!letterOpen)}><Mail size={16}/> {letterOpen ? 'Close the letter' : 'Open your letter'}</button>
+        <button className="primary-button" onClick={handleToggleLetter}><Mail size={16}/> {letterOpen ? 'Close the letter' : 'Open your letter'}</button>
         <AnimatePresence>
           {letterOpen && <motion.div className="letter-content" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.5, ease: 'easeInOut' }}>
             <p className="letter-salutation">Meri Jaan,</p>
