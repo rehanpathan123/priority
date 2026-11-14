@@ -175,6 +175,102 @@ function App() {
       </div>
     </section>
 
+    <section className="triangle-section section-pad">
+      <p className="eyebrow"><SparkleIcon size={14}/> OUR SPECIAL GEOMETRY</p>
+      <h2>The Only <em>Love Triangle</em><br/>I Believe In.</h2>
+      <p className="body-copy">
+        Duniya kehti hai love triangle mein uljhan hoti hai... par hamare is triangle mein har rasta sirf aur sirf tum tak pahunchta hai.
+      </p>
+
+      <div className="triangle-container">
+        {/* Top Node of Triangle */}
+        <div className="triangle-top">
+          <motion.article 
+            className="triangle-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="triangle-photo-wrap">
+              <span className="triangle-badge">CORNER 01</span>
+              <img 
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" 
+                alt="TUM — The Center Of My World" 
+                loading="lazy"
+              />
+            </div>
+            <div className="triangle-card-info">
+              <h3><Heart size={18} fill="#ff4f91" color="#ff4f91"/> TUM (You)</h3>
+              <p className="triangle-card-sub">The Center Of My Universe</p>
+              <p>Duniya mein hazaron log hain, par meri nazar aur mera dil sirf tumpe theherta hai. Jahan se mera har din shuru hota hai aur har khushi mukammal hoti hai.</p>
+            </div>
+          </motion.article>
+        </div>
+
+        {/* Bottom Two Nodes of Triangle */}
+        <div className="triangle-bottom">
+          <motion.article 
+            className="triangle-card"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <div className="triangle-photo-wrap">
+              <span className="triangle-badge">CORNER 02</span>
+              <img 
+                src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80" 
+                alt="Tumhari Khushi" 
+                loading="lazy"
+              />
+            </div>
+            <div className="triangle-card-info">
+              <h3><SparkleIcon size={18} color="#ff9cbd"/> TUMHARI KHUSHI</h3>
+              <p className="triangle-card-sub">My Daily Mission</p>
+              <p>Tumhara ek baar muskurana mere poore din ka sukoon hai. Meri koshish sirf itni hai ki halat chahe jaise bhi hon, is chehre se hansi kabhi kam na ho.</p>
+            </div>
+          </motion.article>
+
+          <motion.article 
+            className="triangle-card"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          >
+            <div className="triangle-photo-wrap">
+              <span className="triangle-badge">CORNER 03</span>
+              <img 
+                src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80" 
+                alt="Meri First Priority" 
+                loading="lazy"
+              />
+            </div>
+            <div className="triangle-card-info">
+              <h3><Heart size={18} fill="#ff7fab" color="#ff7fab"/> MERI PRIORITY</h3>
+              <p className="triangle-card-sub">An Unbroken Promise</p>
+              <p>Priority wo nahi jo fursat milne par yaad aaye... Priority wo hoti hai jiske liye hazaron mashroofiyat mein se sabse pehle waqt nikala jaye.</p>
+            </div>
+          </motion.article>
+        </div>
+      </div>
+
+      <motion.div 
+        className="triangle-quote-box"
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+      >
+        <p>
+          "Log kehte hain love triangle uljha hua hota hai... par hamare ishq mein koi teesra insaan nahi hai.<br/>
+          Isme bas <strong>Tum</strong> ho, <strong>Tumhari muskaan</strong> hai, aur tumhe har pal apni <strong>First Priority</strong> banane ka mera dil se wada hai."
+        </p>
+        <span className="triangle-quote-author">✦ Hamesha sirf tumhare liye — Rehan ❤️ ✦</span>
+      </motion.div>
+    </section>
+
     <section className="letter-section section-pad">
       <div className="letter-card">
         <div className="letter-icon"><Mail size={23}/></div>
