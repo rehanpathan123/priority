@@ -4,6 +4,7 @@ import { Float, Stars, Sparkles, OrbitControls } from '@react-three/drei';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Heart, Volume2, VolumeX, Sparkles as SparkleIcon, LockKeyhole, ArrowDown, Mail, Play, Pause } from 'lucide-react';
 import * as THREE from 'three';
+import herPhoto from './assets/her-photo.jpg';
 
 function HeartModel() {
   const group = useRef();
@@ -195,15 +196,16 @@ function App() {
             <div className="triangle-photo-wrap">
               <span className="triangle-badge">CORNER 01</span>
               <img 
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" 
-                alt="TUM — The Center Of My World" 
-                loading="lazy"
+                src={herPhoto} 
+                alt="TUM — My Whole World" 
+                className="her-featured-photo"
+                loading="eager"
               />
             </div>
             <div className="triangle-card-info">
-              <h3><Heart size={18} fill="#ff4f91" color="#ff4f91"/> TUM (You)</h3>
+              <h3><Heart size={18} fill="#ff4f91" color="#ff4f91"/> TUM (Meri Sabse Pyaari)</h3>
               <p className="triangle-card-sub">The Center Of My Universe</p>
-              <p>Duniya mein hazaron log hain, par meri nazar aur mera dil sirf tumpe theherta hai. Jahan se mera har din shuru hota hai aur har khushi mukammal hoti hai.</p>
+              <p>Duniya ke hazaron chehron mein sirf ek yehi muskaan hai jo meri rooh ko sukoon deti hai. Jahan se mera har din shuru hota hai aur meri har khushi mukammal hoti hai.</p>
             </div>
           </motion.article>
         </div>
